@@ -1,36 +1,50 @@
-function formData(form) {
+const incorrectData = (id) => {
+  const field = document.getElementById(id);
+  field.style.borderColor = "red";
+  field.style.borderWidth = "3px";
+};
+
+const resetFieldStyles = (id) => {
+  const field = document.getElementById(id);
+  field.style.borderColor = "";
+  field.style.borderWidth = "";
+};
+
+const formData = (form) => {
   const initials = form.initials.value.trim();
   const group = form.group.value.trim();
   const phone = form.phone.value.trim();
   const address = form.address.value.trim();
   const email = form.email.value.trim();
 
+  resetFieldStyles("initials");
+  resetFieldStyles("group");
+  resetFieldStyles("phone");
+  resetFieldStyles("address");
+  resetFieldStyles("email");
+
   if (!/^[А-ЯІЇЄҐ][а-яіїєґ']+\s[А-ЯІЇЄҐ]\.\s[А-ЯІЇЄҐ]\.$/.test(initials)) {
-    alert("Некоректний формат ПІП. Використовуйте формат: Іванов І. І.");
+    incorrectData("initials");
     return false;
   }
 
   if (!/^[А-ЯІЇЄҐ]{2}-\d{2}$/.test(group)) {
-    alert("Некоректний формат групи. Використовуйте формат: XX-XX.");
+    incorrectData("group");
     return false;
   }
 
   if (!/^\(\d{3}\)-\d{3}-\d{2}-\d{2}$/.test(phone)) {
-    alert(
-      "Некоректний формат телефону. Використовуйте формат: (XXX)-XXX-XX-XX."
-    );
+    incorrectData("phone");
     return false;
   }
 
-  if (address === "") {
-    alert("Поле 'Адреса' не може бути порожнім.");
+  if (address === "" || address.length < 3) {
+    incorrectData("address");
     return false;
   }
 
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    alert(
-      "Некоректний формат E-Mail. Використовуйте формат: example@domain.com."
-    );
+    incorrectData("email");
     return false;
   }
 
@@ -52,4 +66,4 @@ function formData(form) {
   document.body.appendChild(outputDiv);
 
   return false;
-}
+};
