@@ -35,7 +35,7 @@
         <label for="phone">Телефон</label>
         <input
           placeholder="(XXX)-XXX-XX-XX"
-          type="text"
+          type="tel"
           id="phone"
           name="phone"
           value="" />
@@ -58,13 +58,12 @@
           name="email"
           value="" />
       </p>
-      <button
+      <input
         type="submit"
         value="Надіслати"
         name="Submit"
-        onClick="return Formdata(this.form)">
-        Надіслати
-      </button>
+        onClick="return formData(this.form)" />
     </form>
+    <script src="data.js"></script>
   </body>
 </html>
