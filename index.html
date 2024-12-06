@@ -8,7 +8,63 @@
       name="description"
       content="Лабораторна робота №5 студента групи ІС-22, Житченка Б. Р." />
     <title>Лаб 5, Житченко Б. Р., ІС-22</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="form.css" />
   </head>
-  <body></body>
+  <body>
+    <form action="index.html" method="post">
+      <h1>Форма для заповнення</h1>
+      <p>
+        <label for="initials">ПІП</label>
+        <input
+          placeholder="XXXXXXXX X. X."
+          type="text"
+          id="initials"
+          name="initials"
+          value="" />
+      </p>
+      <p>
+        <label for="group">Група</label>
+        <input
+          placeholder="XX-XX"
+          type="text"
+          id="group"
+          name="group"
+          value="" />
+      </p>
+      <p>
+        <label for="phone">Телефон</label>
+        <input
+          placeholder="(XXX)-XXX-XX-XX"
+          type="text"
+          id="phone"
+          name="phone"
+          value="" />
+      </p>
+      <p>
+        <label for="address">Адреса</label>
+        <input
+          placeholder="м. XXXXXXX"
+          type="text"
+          id="address"
+          name="address"
+          value="" />
+      </p>
+      <p>
+        <label for="email">E-Mail</label>
+        <input
+          placeholder="XXXXXXX@XXXX.com"
+          type="email"
+          id="email"
+          name="email"
+          value="" />
+      </p>
+      <button
+        type="submit"
+        value="Надіслати"
+        name="Submit"
+        onClick="return Formdata(this.form)">
+        Надіслати
+      </button>
+    </form>
+  </body>
 </html>
